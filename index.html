@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baraka</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+</head>
+    <link rel="stylesheet" href="style.css">
+<body>
+
+
+  <nav>
+    <div class="logo">Baraka</div>
+    <div class="name"><h1>Baraka Restaurant</h1></div>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1 class="hero-title">Delicious Meals Await</h1>
+    <p class="hero-sub">Authentic flavors & unforgettable experience</p>
+    <a href="#menu" class="btn-main">Explore Menu</a>
+  </header>
+
+
+  <div class="foodimg">
+    <main>
+ 
+      <section id="menu">
+        <h2 class="section-title">Our Signature Dishes</h2>
+        <div class="menu-grid">
+       
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="alfahm.jpg" alt="Alfahm grilled chicken">
+            </div>
+            <h3>Alfahm</h3>
+            <p>Succulent grilled chicken with Arabian spices.</p>
+          </div>
+        
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="shawai-chicken-arranged-on-wooden-600nw-2045897396.webp" alt="Shawaya slow roasted">
+            </div>
+            <h3>Shawaya</h3>
+            <p>Traditional slow-roasted tender chicken.</p>
+          </div>
+      
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="mandi.webp" alt="Mandi rice and meat">
+            </div>
+            <h3>Mandi</h3>
+            <p>Fragrant rice paired with smoked meat.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="margin"></div>
+
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <div class="card"><img src="pexels-pixabay-262978.jpg" alt="restaurant interior"></div>
+          <div class="card"><img src="kitchen.avif" alt="serving dish"></div>
+          <div class="card"><img src="serving.png" alt="chef kitchen"></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-card">
+          <h2>Contact Us</h2>
+          <p>📍 123 Foodie Street, Flavor Town</p>
+          <p>📞 +1 234 567 890</p>
+          <p>✉️ hello@barakarestaurant.com</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>©️ 2026 Baraka Restaurant. All rights reserved.</p>
+  </footer>
+
+  
+  <script>
+    (function() {
+    
+      anime.timeline()
+        .add({
+          targets: '.hero-title',
+          opacity: [0, 1],
+          translateY: [-60, 0],
+          duration: 1300,
+          easing: 'easeOutExpo'
+        })
+        .add({
+          targets: '.hero-sub',
+          opacity: [0, 1],
+          translateY: [-30, 0],
+          duration: 1000,
+          easing: 'easeOutExpo'
+        }, '-=400');
+
+   
+      const cards = document.querySelectorAll('.card');
+      
+
+      function animateVisibleCards() {
+        const windowHeight = window.innerHeight;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          
+          if (rect.top < windowHeight - 70 && rect.bottom > 0 && getComputedStyle(card).opacity < 0.5) {
+            anime({
+              targets: card,
+              opacity: [0, 1],
+              translateY: [40, 0],
+              duration: 900,
+              delay: 100,
+              easing: 'easeOutQuad'
+            });
+          }
+        });
+      }
+
+  
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            animateVisibleCards();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+     
+      setTimeout(animateVisibleCards, 300);
+      
+    
+      window.addEventListener('resize', animateVisibleCards);
+    })();
+  </script>
+  
+</body>
+</html>

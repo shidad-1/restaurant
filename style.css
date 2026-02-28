@@ -1,0 +1,340 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #f5e6d3;        
+      --dark-bg: #0c0f05;         
+      --glass-light: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --card-bg: rgba(20, 25, 10, 0.4);
+      --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: var(--dark-bg);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 3rem;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      opacity: 0.9;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 2px;
+    }
+
+    .name h1 {
+      font-size: clamp(0.9rem, 4vw, 1.3rem);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #eee;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 1rem;
+      font-weight: 400;
+      font-size: 1rem;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      transition: 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--primary);
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      background: radial-gradient(circle at 30% 40%, rgba(80, 60, 30, 0.3), transparent 60%);
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 12vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-sub {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 700px;
+    }
+
+    .btn-main {
+      margin-top: 2.5rem;
+      padding: 0.9rem 3rem;
+      background: var(--primary);
+      color: #0c0f05;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 60px;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,240,0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-main:hover {
+      transform: scale(1.06);
+      background: #fff4e6;
+      box-shadow: 0 0 30px rgba(245, 230, 211, 0.5);
+    }
+
+    .foodimg {
+      background: linear-gradient(rgba(10, 15, 5, 0.7), rgba(0, 0, 0, 0.95)), 
+                  url('restaurant.webp') fixed center/cover;
+      background-blend-mode: overlay;
+      padding: 5rem 5% 8rem;
+    }
+
+ 
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: var(--transition);
+      opacity: 0; 
+      transform: translateY(30px);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .card:hover {
+      background: rgba(40, 45, 30, 0.6);
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(255, 215, 170, 0.4);
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.15);
+    }
+
+    .card h3 {
+      padding: 1.2rem 1.5rem 0.3rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .card p {
+      padding: 0 1.5rem 2rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+  
+    #gallery h2 {
+      text-align: center;
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin: 4rem 0 2rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .gallery .card {
+      width: 300px;
+      padding: 0;
+      background: rgba(15, 20, 8, 0.6);
+    }
+
+    .gallery .card img {
+      border-radius: 28px 28px 0 0;
+      height: 220px;
+    }
+
+  
+    #contact {
+      margin-top: 6rem;
+    }
+
+    .contact-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(20, 25, 15, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 230, 200, 0.2);
+      padding: 3rem 2.5rem;
+      border-radius: 40px;
+      text-align: center;
+      box-shadow: 0 30px 40px -20px black;
+    }
+
+    .contact-card h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-card p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      opacity: 0.9;
+    }
+
+   
+    .margin {
+      height: 4rem;
+    }
+
+
+    footer {
+      padding: 2.5rem 1rem;
+      background: #050703;
+      text-align: center;
+      border-top: 1px solid rgba(245, 230, 211, 0.1);
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      color: #aaa;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.8rem 5%;
+      }
+      .name h1 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+      }
+      .nav-links {
+        margin-top: 0.2rem;
+      }
+      .nav-links a {
+        margin: 0 0.3rem;
+        padding: 0.2rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      .foodimg {
+        padding: 6rem 1.5rem 5rem;
+        background-attachment: scroll;
+      }
+      .card-img-wrapper {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      .btn-main {
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
+      }
+      .gallery .card {
+        width: 100%;
+        max-width: 350px;
+      }
+      .contact-card {
+        padding: 2rem 1rem;
+      }
+      .contact-card p {
+        font-size: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    .card {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    header {
+      background-image: radial-gradient(circle at 70% 20%, rgba(150, 120, 70, 0.3), transparent 60%);
+    }
